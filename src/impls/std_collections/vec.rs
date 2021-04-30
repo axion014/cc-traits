@@ -6,6 +6,7 @@ use crate::{
 	Reserve,
 	Back,
 	BackMut,
+	MapInsert,
 	Front,
 	FrontMut,
 	PushBack,
@@ -84,6 +85,14 @@ impl<T> PushBack for Vec<T> {
 impl<T> PopBack for Vec<T> {
 	fn pop_back(&mut self) -> Option<T> {
 		self.pop()
+	}
+}
+
+impl<T> MapInsert<usize> for Vec<T> {
+	type Output = ();
+
+	fn insert(&mut self, index: usize, value: T) -> () {
+		self.insert(index, value)
 	}
 }
 
